@@ -12,22 +12,22 @@ How to use
 	
 #### if statement ####
 	var s =	'						\
-			#if($flag === "yes")	\\n\
-				you are right!		\\n\
-			#elseif($flag === "no")	\\n\
-				go die! 			\\n\
-			#else					\\n\
-				WTF!!				\\n\
-			#end					\\n\
+			#if($flag === "yes")	\n\
+				you are right!		\n\
+			#elseif($flag === "no")	\n\
+				go die! 			\n\
+			#else					\n\
+				WTF!!				\n\
+			#end					\n\
 			';
 	tmpl(s).render({flag: 'true'}); //return 'WTF!!'
 
 #### for statement ####
 built-in variables: ** $INDEX $ODD $EVEN **
 	var s = '							\
-			#for($item in $items)		\\n\
-				day$INDEX, $item.did.	\\n\
-			#end						\\n\
+			#for($item in $items)		\n\
+				day$INDEX, $item.did.	\n\
+			#end						\n\
 			';
 	var d = {
 		list : [
