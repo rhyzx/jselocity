@@ -23,7 +23,8 @@ How to use
 	tmpl(s).render({flag: 'true'}); //return 'WTF!!'
 
 #### for statement ####
-built-in variables: ** $INDEX $ODD $EVEN **
+built-in variables: **$INDEX $ODD $EVEN**
+
 	var s = '							\
 			#for($item in $items)		\n\
 				day$INDEX, $item.did.	\n\
@@ -53,11 +54,13 @@ built-in variables: ** $INDEX $ODD $EVEN **
 	tmpl('#format.time($msec)').render({msec: 1356278400000}); //return 'Mon Dec 24 2012 00:00:00 GMT+0800'
 
 #### escaper(WIP) ####
-** $S **
+**$S**
+
 	tmpl('$name$SDAM!!!').render({name: 'GUN'}); //return 'GUNDAM!!!';
 
 #### PS ####
 there is no **cache sys in jselocity**, you should cache it by self.
+
 	var cache	= {},
 		url 	= '/user/id',
 		s		= getStringByURL(url);
