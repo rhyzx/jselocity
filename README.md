@@ -53,12 +53,10 @@ built-in variables: **$INDEX $ODD $EVEN**
 	
 	tmpl('#format.time($msec)').render({msec: 1356278400000}); //return 'Mon Dec 24 2012 00:00:00 GMT+0800'
 
-#### escaper(WIP) ####
-**$S**
+#### TIPS ####
+use '\0'
+	tmpl('$name\0DAM!!!').render({name: 'GUN'}); //return 'GUNDAM!!!';
 
-	tmpl('$name$SDAM!!!').render({name: 'GUN'}); //return 'GUNDAM!!!';
-
-#### PS ####
 there is no **cache sys in jselocity**, you should cache it by self.
 
 	var cache	= {},
