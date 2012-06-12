@@ -55,6 +55,7 @@ built-in variables: **$INDEX $ODD $EVEN**
 
 #### TIPS ####
 use '\0'
+
 	tmpl('$name\0DAM!!!').render({name: 'GUN'}); //return 'GUNDAM!!!';
 
 there is no **cache sys in jselocity**, you should cache it by self.
