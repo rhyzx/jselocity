@@ -3,8 +3,8 @@
  * a velocity-like js template engine
  * inspired by John Resig's Micro-Templating http://ejohn.org/blog/javascript-micro-templating/
  *
- * Copyright (c) 2012 Rhyzix
- * https://code.google.com/p/wingzero/
+ * Copyright (c) 2012 rhyzx
+ * https://github.com/rhyzx/Jselocity
  * Licensed under the MIT license
  *
  * @example :
@@ -14,7 +14,7 @@
 	//bind function
 	$.tmpl = tmpl;
 	/**
-	 * ´´½¨Ò»¸öÄ£°å
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ä£ï¿½ï¿½
 	 */
 	function tmpl(str) {
 		return new Template(str);
@@ -43,18 +43,18 @@
 		}
 	};
 	/**
-	 * Ìí¼Óformat½Ó¿Ú
+	 * ï¿½ï¿½ï¿½ï¿½formatï¿½Ó¿ï¿½
 	 */
 	tmpl.addFormat = function(key, format) {
 		if(formaters[key] && typeof format == 'function') {
 			formaters[key] = format;
 		} else {
-			console.warn('format:' +key +';ÒÑ¾­´æÔÚ, »òÕßformat²»ÊÇfunction');
+			console.warn('format:' +key +';ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½formatï¿½ï¿½ï¿½ï¿½function');
 		}
 	};
 
 	var processor = {
-		/* ÓÃÓÚÄ£°åÄÚ²¿È¡Êý¾Ý */
+		/* ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ú²ï¿½È¡ï¿½ï¿½ï¿½ï¿½ */
 		get			: function(obj, fields) {
 			var v = obj;
 			if(fields) { //undefined ''
@@ -75,7 +75,7 @@
 				return v;
 			}
 		},
-		/* ÓÃÓÚÄ£°åÄÚ²¿¸ñÊ½»¯Êý¾Ý */
+		/* ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 		format		: function(name, data, fields) {
 			var formater	= formaters[name];
 			var value		= processor.get(data, fields);
@@ -143,7 +143,7 @@
 	}
 	Template.prototype = {
 		/**
-		 * äÖÈ¾Êý¾Ý½Ó¿Ú
+		 * ï¿½ï¿½È¾ï¿½ï¿½ï¿½Ý½Ó¿ï¿½
 		 * @param {json} data
 		 * @return {String} htmlStr
 		 */
@@ -153,9 +153,9 @@
 
 		/**
 		 * get HTML Dom object
-		 * ÀûÓÃDocumentFragmentÉú³Éhtml Dom
-		 * Èç¹ûÓÐcallbackÔòÊ¹ÓÃÒì²½Éú³Éhtml(²»¿¨)
-		 * @param data {json} äÖÈ¾ÓÃÊý¾Ý
+		 * ï¿½ï¿½ï¿½ï¿½DocumentFragmentï¿½ï¿½ï¿½ï¿½html Dom
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½callbackï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½html(ï¿½ï¿½ï¿½ï¿½)
+		 * @param data {json} ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 * @param {function} callback(dom {DocumentFragment} ) || @return {DocumentFragment} dom
 		 */
 		renderHTML	: function(data, callback) {
@@ -168,7 +168,7 @@
 				(function(){
 					if(temp.firstChild){
 						frag.appendChild(temp.firstChild);
-						setTimeout(arguments.callee, 0); //µÝ¹é
+						setTimeout(arguments.callee, 0); //ï¿½Ý¹ï¿½
 					} else {
 						callback(frag);
 					}
