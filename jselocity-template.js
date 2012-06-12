@@ -14,7 +14,7 @@
 	//bind function
 	$.tmpl = tmpl;
 	/**
-	 * ����һ��ģ��
+	 * 创建一个模板
 	 */
 	function tmpl(str) {
 		return new Template(str);
@@ -43,18 +43,18 @@
 		}
 	};
 	/**
-	 * ����format�ӿ�
+	 * 添加format接口
 	 */
 	tmpl.addFormat = function(key, format) {
 		if(formaters[key] && typeof format == 'function') {
 			formaters[key] = format;
 		} else {
-			console.warn('format:' +key +';�Ѿ�����, ����format����function');
+			console.warn('format:' +key +';已经存在, 或者format不是function');
 		}
 	};
 
 	var processor = {
-		/* ����ģ���ڲ�ȡ���� */
+		/* 用于模板内部取数据 */
 		get			: function(obj, fields) {
 			var v = obj;
 			if(fields) { //undefined ''
@@ -75,7 +75,7 @@
 				return v;
 			}
 		},
-		/* ����ģ���ڲ���ʽ������ */
+		/* 用于模板内部格式化数据 */
 		format		: function(name, data, fields) {
 			var formater	= formaters[name];
 			var value		= processor.get(data, fields);
@@ -143,7 +143,7 @@
 	}
 	Template.prototype = {
 		/**
-		 * ��Ⱦ���ݽӿ�
+		 * 渲染数据接口
 		 * @param {json} data
 		 * @return {String} htmlStr
 		 */
@@ -153,9 +153,9 @@
 
 		/**
 		 * get HTML Dom object
-		 * ����DocumentFragment����html Dom
-		 * ������callback��ʹ���첽����html(����)
-		 * @param data {json} ��Ⱦ������
+		 * 利用DocumentFragment生成html Dom
+		 * 如果有callback则使用异步生成html(不卡)
+		 * @param data {json} 渲染用数据
 		 * @param {function} callback(dom {DocumentFragment} ) || @return {DocumentFragment} dom
 		 */
 		renderHTML	: function(data, callback) {
@@ -168,7 +168,7 @@
 				(function(){
 					if(temp.firstChild){
 						frag.appendChild(temp.firstChild);
-						setTimeout(arguments.callee, 0); //�ݹ�
+						setTimeout(arguments.callee, 0); //递归
 					} else {
 						callback(frag);
 					}
